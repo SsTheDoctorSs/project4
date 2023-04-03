@@ -2,6 +2,7 @@ import telegram
 import os
 import random
 import time
+from pathlib import Path
 
 telegram_token = os.environ['TG_TOKEN']
 chat_id = os.environ['TG_CHAT_ID']
@@ -13,5 +14,7 @@ filesindir = os.listdir(dir_name)
 while True:
     random.shuffle(filesindir)
     for file in filesindir:
-        bot.send_document(chat_id=chat_id, document=with open(f'{dir_name}/{file}', 'rb'))
+        path_file = os.path.join(dir_name, file)
+        with open(path_file, 'rb') as doc:
+            bot.send_document(chat_id=chat_id, document=doc)
         time.sleep(int(period))
