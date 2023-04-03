@@ -5,9 +5,8 @@ from pathlib import Path
 from option import get_option
 from dotenv import load_dotenv
 
-def save_nasa_pictures(folder_name, api_key):
+def save_nasa_pictures(folder_name, api_key, count_of_links):
     website = 'https://api.nasa.gov/planetary/apod/'
-    count_of_links = 20
 
     params = {"api_key": api_key, "count": count_of_links}
     response = requests.get(website, params=params)
@@ -23,8 +22,9 @@ def save_nasa_pictures(folder_name, api_key):
 def main():
     load_dotenv()
     api_key = os.environ['NASA_API_KEY']
+    count_of_links = int(input())
     folder_name = 'images'
     Path(folder_name).mkdir(parents=True, exist_ok=True)
-    save_nasa_pictures(folder_name, api_key)
+    save_nasa_pictures(folder_name, api_key, count_of_links)
 if __name__ == '__main__':
     main()
