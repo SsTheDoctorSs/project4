@@ -13,5 +13,5 @@ filesindir = os.listdir(dir_name)
 while True:
     random.shuffle(filesindir)
     for file in filesindir:
-        bot.send_document(chat_id=chat_id, document=open(f'{dir_name}/{file}', 'rb'))
+        bot.send_document(chat_id=chat_id, document=with open(f'{dir_name}/{file}', 'rb'))
         time.sleep(int(period))
