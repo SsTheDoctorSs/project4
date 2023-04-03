@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 def save_EPIC_pictures(folder_name):
     website = 'https://api.nasa.gov/EPIC/api/natural/images'
-    api_key = os.environ['API_KEY']
+    api_key = os.environ['NASA_API_KEY']
     params = {"api_key": api_key}
     response = requests.get(website, params=params)
     response.raise_for_status()
