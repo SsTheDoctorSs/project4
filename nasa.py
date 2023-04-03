@@ -22,7 +22,7 @@ def save_nasa_pictures(folder_name, api_key):
             save_picture(images_link, path)
 def main():
     load_dotenv()
-    api_key = os.environ['API_KEY']
+    api_key = os.environ['NASA_API_KEY']
     folder_name = 'images'
     Path(folder_name).mkdir(parents=True, exist_ok=True)
     save_nasa_pictures(folder_name, api_key)
