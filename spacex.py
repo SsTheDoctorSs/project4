@@ -8,8 +8,8 @@ def save_spacex_pictures(folder_name):
     response.raise_for_status()
     get_spacex_image = response.json()
     for link in get_spacex_image:
+        images_link = link["links"]["flickr_images"]
         if link["links"]["flickr_images"]:
-            images_link = link["links"]["flickr_images"]
             print(images_link)
             break
 
