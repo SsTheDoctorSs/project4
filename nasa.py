@@ -14,7 +14,7 @@ def save_nasa_pictures(folder_name, api_key):
     response.raise_for_status()
     get_nasa_image = response.json()
     for image in get_nasa_image:
-        if image["url"]:
+        if image["url"] and image["media_type"] == 'image':
             images_link = image["url"]
             print(images_link)
             extention, filename = get_option(images_link)
