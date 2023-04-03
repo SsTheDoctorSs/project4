@@ -4,7 +4,7 @@ import random
 import time
 
 telegram_token = os.environ['TG_TOKEN']
-chat_id = os.environ['CHAT_ID']
+chat_id = os.environ['TG_CHAT_ID']
 time_test = os.environ['time_test']
 period = os.environ['TIME']
 bot = telegram.Bot(token=telegram_token)
