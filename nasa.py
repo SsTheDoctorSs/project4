@@ -15,7 +15,6 @@ def save_nasa_pictures(folder_name, api_key, count_of_links):
     for image in get_nasa_image:
         if image["url"] and image["media_type"] == 'image':
             images_link = image["url"]
-            print(images_link)
             extention, filename = get_option(images_link)
             path = os.path.join(folder_name, f'{filename}{extention}')
             save_picture(images_link, path)
