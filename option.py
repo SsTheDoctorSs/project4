@@ -1,5 +1,7 @@
-import os 
+import os
 from urllib.parse import urlparse, unquote
+
+
 def get_option(link):
     cut_link = unquote(link)
     divided_link = urlparse(cut_link)
