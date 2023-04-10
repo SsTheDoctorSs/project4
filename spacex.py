@@ -10,7 +10,6 @@ def save_spacex_pictures(folder_name):
     for link in get_spacex_image:
         images_link = link["links"]["flickr_images"]
         if link["links"]["flickr_images"]:
-            print(images_link)
             break
 
     for link_number, link in enumerate(images_link):
