@@ -1,4 +1,6 @@
 import requests
+
+
 def save_picture(url, path, params=None):
     response = requests.get(url, params)
     response.raise_for_status()
