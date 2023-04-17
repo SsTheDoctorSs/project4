@@ -11,8 +11,8 @@ def save_EPIC_pictures(folder_name, api_key):
     params = {"api_key": api_key}
     response = requests.get(website, params=params)
     response.raise_for_status()
-    get_EPIC_image = response.json()
-    for image in get_EPIC_image:
+    EPIC_images = response.json()
+    for image in EPIC_images:
         images_link = image["image"]
         image_date = image["date"]
         date = datetime.fromisoformat(image_date).strftime('%Y/%m/%d')
