@@ -13,8 +13,8 @@ def save_nasa_pictures(folder_name, api_key, count_of_links):
     params = {"api_key": api_key, "count": count_of_links}
     response = requests.get(website, params=params)
     response.raise_for_status()
-    get_nasa_image = response.json()
-    for image in get_nasa_image:
+    nasa_images = response.json()
+    for image in nasa_images:
         if (image["url"] or image["hdurl"]) and image["media_type"] == 'image':
             images_link = image["url"]
             extension, filename = get_option(images_link)
