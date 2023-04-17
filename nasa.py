@@ -1,5 +1,6 @@
 import requests
 import os
+import argparse
 from save_picture import save_picture
 from pathlib import Path
 from option import get_option
@@ -24,10 +25,12 @@ def save_nasa_pictures(folder_name, api_key, count_of_links):
 def main():
     load_dotenv()
     api_key = os.environ['NASA_API_KEY']
-    count_of_links = int(input())
+    parser = argparse.ArgumentParser(description = 'Загружает изображения из NASA, EPIC, и SpaceX')
+    parser.add_argument('count', type=int, help='Количество ссылок')
+    args = parser.parse_args()
     folder_name = 'images'
     Path(folder_name).mkdir(parents=True, exist_ok=True)
-    save_nasa_pictures(folder_name, api_key, count_of_links)
+    save_nasa_pictures(folder_name, api_key, args.count)
 
 
 if __name__ == '__main__':
