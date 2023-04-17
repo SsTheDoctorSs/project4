@@ -9,7 +9,7 @@ from telegram.error import NetworkError
 def main():
     telegram_token = os.environ['TG_TOKEN']
     chat_id = os.environ['TG_CHAT_ID']
-    period = os.environ['TIME']
+    period = int(os.environ.get('TIME', 14400))
     bot = telegram.Bot(token=telegram_token)
     dir_name = 'images'
     filesindir = os.listdir(dir_name)
