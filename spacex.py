@@ -11,7 +11,7 @@ def save_spacex_pictures(folder_name):
     get_spacex_image = response.json()
     for link in get_spacex_image:
         images_link = link["links"]["flickr_images"]
-        if link["links"]["flickr_images"]:
+        if images_link:
             break
 
     for link_number, link in enumerate(images_link):
