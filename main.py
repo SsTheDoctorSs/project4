@@ -14,8 +14,8 @@ def main():
     dir_name = 'images'
     filesindir = os.listdir(dir_name)
     while True:
+        random.shuffle(filesindir)
         try:
-            random.shuffle(filesindir)
             for file in filesindir:
                 path_file = os.path.join(dir_name, file)
                 with open(path_file, 'rb') as doc:
