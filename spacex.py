@@ -8,8 +8,8 @@ def save_spacex_pictures(folder_name):
     website = 'https://api.spacexdata.com/v3/launches/'
     response = requests.get(website)
     response.raise_for_status()
-    get_spacex_image = response.json()
-    for link in get_spacex_image:
+    spacex_images = response.json()
+    for link in spacex_images:
         images_link = link["links"]["flickr_images"]
         if images_link:
             break
