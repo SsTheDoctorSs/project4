@@ -23,6 +23,7 @@ def main():
                 time.sleep(int(period))
         except NetworkError:
             print('Ошибка сети')
+            time.sleep(20)
 
 
 if __name__ == '__main__':
