@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 
 
 def save_EPIC_pictures(folder_name, api_key):
-    website = 'https://api.nasa.gov/EPIC/api/natural/images'
+    url = 'https://api.nasa.gov/EPIC/api/natural/images'
     params = {"api_key": api_key}
-    response = requests.get(website, params=params)
+    response = requests.get(url, params=params)
     response.raise_for_status()
     EPIC_images = response.json()
     for image in EPIC_images:
