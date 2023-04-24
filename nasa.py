@@ -15,8 +15,11 @@ def save_nasa_pictures(folder_name, api_key, count_of_links):
     response.raise_for_status()
     nasa_images = response.json()
     for image in nasa_images:
-        if (image["url"] or image["hdurl"]) and image["media_type"] == 'image':
-            images_link = image["url"]
+        if image.get("media_type") == 'image':
+            if image.get("hdurl"):
+                images_link = image["hdurl"]
+            else:
+                images_link = image["url"]
             extension, filename = get_option(images_link)
             path = os.path.join(folder_name, f'{filename}{extension}')
             save_picture(images_link, path)
