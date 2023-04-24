@@ -8,10 +8,10 @@ from dotenv import load_dotenv
 
 
 def save_nasa_pictures(folder_name, api_key, count_of_links):
-    website = 'https://api.nasa.gov/planetary/apod/'
+    url = 'https://api.nasa.gov/planetary/apod/'
 
     params = {"api_key": api_key, "count": count_of_links}
-    response = requests.get(website, params=params)
+    response = requests.get(url, params=params)
     response.raise_for_status()
     nasa_images = response.json()
     for image in nasa_images:
