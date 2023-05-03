@@ -3,7 +3,7 @@ import os
 import argparse
 from save_picture import save_picture
 from pathlib import Path
-from option import get_option
+from option import get_extension_from_link
 from dotenv import load_dotenv
 
 
@@ -20,7 +20,7 @@ def save_nasa_pictures(folder_name, api_key, count_of_links):
                 images_link = image["hdurl"]
             else:
                 images_link = image["url"]
-            extension, filename = get_option(images_link)
+            extension, filename = get_extension_from_link(images_link)
             path = os.path.join(folder_name, f'{filename}{extension}')
             save_picture(images_link, path)
 
