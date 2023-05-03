@@ -29,7 +29,7 @@ def main():
     load_dotenv()
     api_key = os.environ['NASA_API_KEY']
     parser = argparse.ArgumentParser(description = 'Загружает изображения из NASA, EPIC, и SpaceX')
-    parser.add_argument('count', type=int, default=10, help='Количество ссылок')
+    parser.add_argument('--count', type=int, default=10, help='Количество ссылок')
     args = parser.parse_args()
     folder_name = 'images'
     Path(folder_name).mkdir(parents=True, exist_ok=True)
