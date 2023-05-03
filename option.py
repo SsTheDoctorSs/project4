@@ -2,7 +2,7 @@ import os
 from urllib.parse import urlparse, unquote
 
 
-def get_option(link):
+def get_extension_from_link(link):
     shortened_link = unquote(link)
     divided_link = urlparse(shortened_link)
     path, filename = os.path.split(divided_link.path)
